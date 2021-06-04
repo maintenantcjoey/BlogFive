@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '56106f68611a4cdf2ce7c37668455e590a43819a',
+    'reference' => '0206f0cc21b5a5a3952251d2abc1c994cb84afa4',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '56106f68611a4cdf2ce7c37668455e590a43819a',
+      'reference' => '0206f0cc21b5a5a3952251d2abc1c994cb84afa4',
     ),
     'altorouter/altorouter' => 
     array (
@@ -28,6 +28,33 @@
       array (
       ),
       'reference' => '09d9d946c546bae6d22a7654cdb3b825ffda54b4',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
+    ),
+    'symfony/polyfill-mbstring' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2df51500adbaebdc4c38dea4c89a2e131c45c8a1',
+    ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v3.3.2',
+      'version' => '3.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
   ),
 );

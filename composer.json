@@ -1,5 +1,11 @@
 {
+    "autoload": {
+        "psr-4": {
+            "Blog\\": "src/"
+        }
+    },
     "require": {
-        "altorouter/altorouter": "1.1.0"
+        "altorouter/altorouter": "1.1.0",
+        "twig/twig": "^3.3"
     }
 }
