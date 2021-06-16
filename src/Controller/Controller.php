@@ -10,11 +10,11 @@ use Twig\Environment;
  */
 class Controller
 {
-	protected Environment $twig;
+	protected $twig;
 
 	public function __construct()
 	{
-		$loader = new FilesystemLoader(__DIR__ . '/../views');
+		$loader = new FilesystemLoader(__DIR__ . '/../Views');
 		$this->twig = new Environment($loader, [
     		'cache' => __DIR__ . '/../var/cache',
 		]);
