@@ -1,8 +1,8 @@
 <?php
-//est ce que cela je le sépare ou le met ds ArticleManager.php??
+
 class Article
 {
-    //ts les attribues de la table
+//ts les attribues de la table
     private $id;
     private $title;
     private $chapo;
@@ -16,38 +16,27 @@ class Article
         $this->hydrate($data);
     }
 
-    //hydratation: pr chaque valeur du tableau on récup la clé et la valeur
-    //créa des seters
+//hydratation: pr chaque valeur du tableau on récup la clé et la valeur
     public function hydrate(array $data){
         foreach($date as $hey => $value){
             $method = 'set' .ucfirst($key);
         }
     }
-
+// seters
     public function setId($id){
-        $id = (int) $id;
-        //verif que id non null
-        if($id > 0){
-            $this->id = $id;
-        }
+        $this->id = $id;
     }
     
     public function setTitle($title){
-        if (is_string($title)){
-            $this->title = $title;
-        }
+        $this->title = $title;
     }
 
     public function setContent($content){
-        if (is_string($content)){
-            $this->content = $content;
-        }
+        $this->content = $content;  
     }
 
     public function setAuthor($author){
-        if (is_string($author)){
-            $this->author = $author;
-        }
+        $this->author = $author;
     }
 
     public function setImage($image){
@@ -58,8 +47,47 @@ class Article
         $this->date = $date;
     }
 
-    //dois mettre les clé étrangères comme Userid?
+    public function setUserId(){
+        $this->UserId = $userId
+    }
 
+    public fuction setArticleId(){
+        $this->ArticleId = $articleId
+    }
+//trouver comme faire le typage php
+
+//getters 
+    public function id(){
+        $this->id = $id;
+    }
+    
+    public function $title(){
+        $this->title = $title;
+    }
+
+    public function $content(){
+        $this->content = $content;  
+    }
+
+    public function $author(){
+        $this->author = $author;
+    }
+
+    public function $image(){
+        $this->image = $image;
+    }
+
+    public function $date(){
+        $this->date = $date;
+    }
+
+    public function $userId(){
+        $this->UserId = $userId
+    }
+
+    public fuction $articleId(){
+        $this->ArticleId = $articleId
+    }
 }
 
 ?>

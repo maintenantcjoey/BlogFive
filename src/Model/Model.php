@@ -27,15 +27,10 @@ abstract class Model
         $var = [];
         $req = self::$bdd->prepare('SELECT * FROM' .$table. 'ORDER BY id desc');
         $req->execute();
+        while($data = $req->fetch(PDO::FETCH_ASSOC)){
+        $var[] = new $objet($data);}
+        return $var;
     }
-
-    //données de la base comme objets ds le tableau $var
-    while($data = $req->fetch(PDO::FETCH_ASSOC)){
-        $var[] = new $objet($data);
-    }
-
-    return $var;
-    $req->closeCursor();
 
 }
 
