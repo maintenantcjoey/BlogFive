@@ -1,12 +1,6 @@
 <?php
-//je dois mettre cela? 
-namespace Blog\Model;
-require_once("Model/Model.php");
 
-class PostManager extends Manager
-{
-    // ...
-}
+namespace Blog\Model;
 
 class ArticleManager extends Model
 {
@@ -15,11 +9,6 @@ class ArticleManager extends Model
         return $this->getAll('article', 'Article');
     }
 }
-
-
-
-
-
 
 
 
