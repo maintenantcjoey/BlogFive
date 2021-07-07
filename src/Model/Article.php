@@ -1,5 +1,8 @@
 <?php
 
+namespace Blog\Model;
+
+
 class Article
 {
 //ts les attribues de la table
@@ -10,84 +13,93 @@ class Article
     private $author;
     private $image;
     private $date;
-    private $user_id;
+    private $status;
 
-    public function __construct(array $data){
-        $this->hydrate($data);
-    }
-
-//hydratation: pr chaque valeur du tableau on récup la clé et la valeur
-    public function hydrate(array $data){
-        foreach($date as $hey => $value){
-            $method = 'set' .ucfirst($key);
-        }
-    }
 // seters
-    public function setId($id){
+    public function setId($id)
+    {
         $this->id = $id;
     }
-    
-    public function setTitle($title){
+
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
-    public function setContent($content){
-        $this->content = $content;  
+    public function setContent($content)
+    {
+        $this->content = $content;
     }
 
-    public function setAuthor($author){
+    public function setAuthor($author)
+    {
         $this->author = $author;
     }
 
-    public function setImage($image){
+    public function setImage($image)
+    {
         $this->image = $image;
     }
 
-    public function setDate($date){
+    public function setDate($date)
+    {
         $this->date = $date;
     }
 
-    public function setUserId(){
-        $this->UserId = $userId
+    public function getChapo()
+    {
+        return $this->chapo;
     }
 
-    public fuction setArticleId(){
-        $this->ArticleId = $articleId
-    }
-//trouver comme faire le typage php
-
-//getters 
-    public function id(){
-        $this->id = $id;
-    }
-    
-    public function $title(){
-        $this->title = $title;
+    public function setChapo($chapo)
+    {
+        $this->chapo = $chapo;
     }
 
-    public function $content(){
-        $this->content = $content;  
+    public function getId()
+    {
+        return $this->id;
     }
 
-    public function $author(){
-        $this->author = $author;
+    public function getTitle()
+    {
+        return $this->title;
     }
 
-    public function $image(){
-        $this->image = $image;
+    public function getContent()
+    {
+        return $this->content;
     }
 
-    public function $date(){
-        $this->date = $date;
+    public function getAuthor()
+    {
+        return $this->author;
     }
 
-    public function $userId(){
-        $this->UserId = $userId
+    public function getImage()
+    {
+        return $this->image;
     }
 
-    public fuction $articleId(){
-        $this->ArticleId = $articleId
+    public function getDate()
+    {
+        return $this->date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
 }
-
-?>

@@ -1,26 +1,11 @@
 <?php
 
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
+require_once 'config/conf.php';
 
-$router = new AltoRouter();
+session_start();
 
-// map homepage
-$router->map( 'GET', '/', 'FrontController#home');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-$match = $router->match();
-
-
-if (stripos($match['target'], '#') !== false) {
-    list($controller, $method) = explode('#', $match['target'], 2);
-
-    $cname = "Blog\Controller\\" . $controller;
-    $controllerName = new $cname;
-
-    if ($match['params']) {
-        call_user_func_array(array($controllerName, $method), array($match['params']));
-    } else {
-        call_user_func(array($controllerName, $method));
-    }
-} else {
-    header('Location: /');
-}
+require_once 'config/routes.php';
