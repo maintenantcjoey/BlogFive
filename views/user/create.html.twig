@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>Creer un compte</h2>
+
+    <form method="post">
+        <label for="lastname">Lastname</label>
+        <input type="text" name="lastname" id="lastname">
+        {% if errors is not empty and 'lastname' in errors.missings or 'lastname' in errors.required|keys %}
+            <span class="error">Champs obligatoire</span>
+        {% endif %}
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+        {% if errors is not empty and 'email' in errors.missings or 'email' in errors.required|keys %}
+            <span class="error">Champs obligatoire</span>
+        {% endif %}
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" id="firstname">
+        {% if errors is not empty and 'firstname' in errors.missings or 'firstname' in errors.required|keys %}
+            <span class="error">Champs obligatoire</span>
+        {% endif %}
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password">
+        {% if errors is not empty and 'password' in errors.missings or 'password' in errors.required|keys %}
+            <span class="error">Champs obligatoire</span>
+        {% endif %}
+
+        <input type="submit" value="Créer">
+    </form>
+{% endblock %}

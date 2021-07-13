@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>Acount</h2>
+
+    {% for post in posts %}
+        <p>{{ post.title }}</p>
+    {% endfor %}
+
+{% endblock %}
