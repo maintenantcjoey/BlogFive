@@ -1,13 +1,37 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container">
+    
+        <h1>Jessica Legrand, dévelopeuse</h1>
+
+        <div class="m-5">
+            <h5>Enthousiaste et déterminée, je souhaite mettre mes connaissances et mon
+            énergie à votre service pour relever de nouveaux défis, afin de m'enrichir, de
+            développer mes compétences ainsi que ma créativité.
+            </h5>
+        </div>
+
+        <div class="card">
+            <img src="../public/assets/image/cv.jpg" class="card-img-bottom" alt="cv">
+        </div>
+        
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <button class="btn btn-dark" type="submit">Télécharge le CV</button>
+        </div>
+    
+        <div class="m-5">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Votre Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Votre Messsage ici</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div>
+                <button class="btn btn-dark" type="submit">Submit form</button>
+            </div>
         </div>
     </div>
 {% endblock %}
