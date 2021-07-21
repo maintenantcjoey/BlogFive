@@ -15,6 +15,8 @@ class User
 
     private $password;
 
+    private $author;
+
     private $role;
 
     /**
@@ -79,6 +81,38 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
     }
 
     /**
