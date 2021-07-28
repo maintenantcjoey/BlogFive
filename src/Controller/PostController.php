@@ -17,8 +17,8 @@ class PostController extends Controller
         if (isset($_GET['id'])){
             $this->articleManager = new ArticleManager();
             $article = $this->articleManager->getArticle($_GET['id']);
-            echo $this->twig->render('../views/article/article.html.twig', [
-            'posts' => $posts,
+            echo $this->twig->render('article/article.html.twig', [
+            'post' => $post
         ]);
         }
     }

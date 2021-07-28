@@ -14,6 +14,6 @@ class ArticleManager extends AbstractManager
     //récup 1 article
     public function getArticle($id)
     {
-        return $this->getOne('articles', 'Article', $id);
+        return $this->get('articles', 'Article', $id);
     }
 }

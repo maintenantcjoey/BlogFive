@@ -33,11 +33,6 @@ abstract class AbstractManager
         return $var;
     }
 
-    protected function getOne($id)
-    {
-
-    }
-
     private function getTable()
     {
         $explode = explode('\\', get_class($this));
