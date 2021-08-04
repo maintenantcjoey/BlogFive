@@ -1,1 +1,57 @@
-<h1>yo</h1>
+{% extends "baseBo.html.twig" %}
+
+{% block body %}
+    <div class="container">
+    
+        <h2 class="d-flex justify-content-center" >Créer un article</h2>
+
+        <form method="post">
+                <div class="m-3">
+                <p>Titre</p>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="title" class="form-control" aria-label="Title"></textarea>
+                    {% if errors is not empty and 'title' in errors.missings or 'title' in errors.required|keys %}
+                        <span class="error ml-1 mr-1">Champs obligatoire</span>
+                    {% endif %}
+                </div>
+
+                <div class="m-3">
+                <p>Chapo</p>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="chapo" class="form-control" aria-label="Chapo"></textarea>
+                    {% if errors is not empty and 'chapo' in errors.missings or 'chapo' in errors.required|keys %}
+                        <span class="error ml-1 mr-1">Champs obligatoire</span>
+                    {% endif %}
+                </div>
+
+                <div class="m-3">
+                <p>Contenu</p>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="content" class="form-control" aria-label="Content"></textarea>
+                    {% if errors is not empty and 'content' in errors.missings or 'content' in errors.required|keys %}
+                        <span class="error ml-1 mr-1">Champs obligatoire</span>
+                    {% endif %}
+                </div>
+
+                <div class="m-3">
+                <p>Auteur</p>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="author" class="form-control" aria-label="Author"></textarea>
+                    {% if errors is not empty and 'author' in errors.missings or 'author' in errors.required|keys %}
+                    <span class="error ml-1 mr-1">Champs obligatoire</span>
+                {% endif %}
+                </div>
+
+                <div class="m-3">
+                <p>Image</p>
+                    <input type="search" id="form1" class="form-control" aria-label="Image"></textarea>
+                    <button type="button" class="btn btn-primary mt-1">Rechercher <i class="fas fa-search"></i></button>
+                    {% if errors is not empty and 'image' in errors.missings or 'image' in errors.required|keys %}
+                    <span class="error ml-1 mr-1">Champs obligatoire</span>
+                {% endif %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-center m-5">
+                <input class="btn btn-dark" type="submit" value="Créer">
+            </div>
+    
+     </form>
+    
+    </div>
+{% endblock %}

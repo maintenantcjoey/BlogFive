@@ -13,7 +13,7 @@ $router->map('GET|POST', '/create', 'ArticleController#create');
 
 
 //account
-$router->map('GET', '/mon-compte', 'AccountController#account');
+$router->map('GET|POST', '/mon-compte', 'AccountController#account');
 
 $match = $router->match();
 
