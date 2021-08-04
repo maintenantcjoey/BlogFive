@@ -1,1 +1,12 @@
-<h1>TEST 1 ARTICLE SANS S </h1>
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center m-5">{{article.title}}</h5>
+            <img class="card-text d-flex justify-content-center" alt="projet">{{article.image}}</img>
+            <p class="card-text d-flex justify-content-center">{{article.chapo}}</p>
+            <p class="card-text d-flex justify-content-center">{{article.content}}</p>
+        </div>
+    </div>
+{% endblock %}

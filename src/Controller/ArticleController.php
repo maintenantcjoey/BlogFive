@@ -48,5 +48,18 @@ class ArticleController extends Controller
             'errors' => $form->getErrors()
         ]);
     }
+
+    public function article($id)
+    {
+        if (isset($id['id'])){
+            $this->articleManager = new ArticleManager();
+            $article = $this->articleManager->getArticle(['id' => $id['id']]);
+            // var_dump($article);
+            // die;
+            echo $this->twig->render('article/article.html.twig', [
+            'article' => $article
+        ]);
+        }
+    }
 }
 ?>
