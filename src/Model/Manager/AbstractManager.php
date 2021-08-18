@@ -63,7 +63,7 @@ abstract class AbstractManager
         $table = $this->getTable();
         $where = '';
 
-        foreach ($data as $key => $value) {
+        foreach ($data as $key => $value) { 
             $where .= " $key = " . $this->quote($value);
         }
         $select = 'SELECT * FROM ' . $table . ' WHERE' . $where . ($unique ? ' LIMIT 1' : '');

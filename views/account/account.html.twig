@@ -1,10 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h2>Acount</h2>
+    <div class="container">
+        <h1> Mon compte </h1>
+    </div>
 
-    {% for post in posts %}
-        <p>{{ post.title }}</p>
-    {% endfor %}
-
+    <div class="card mb-3" style="width: 17rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.chapo}}</p>
+                        <a href="/post/{{post.id}}" class="btn btn-primary">Lire l'article</a>
+                    </div>
+                </div>
 {% endblock %}
