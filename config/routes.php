@@ -10,6 +10,7 @@ $router->map('GET|POST', '/inscription', 'SecurityController#create');
 $router->map('GET|POST', '/connexion', 'SecurityController#login');
 $router->map( 'GET', '/post/[i:id]', 'ArticleController#article');
 $router->map('GET|POST', '/create', 'ArticleController#create');
+$router->map('GET', '/backoffice', 'ArticleController#homeBo');
 
 
 //account
