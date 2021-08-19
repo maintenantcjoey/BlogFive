@@ -31,16 +31,8 @@
                 </div>
 
                 <div class="m-3">
-                <p>Auteur</p>
-                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="author" class="form-control" aria-label="Author"></textarea>
-                    {% if errors is not empty and 'author' in errors.missings or 'author' in errors.required|keys %}
-                    <span class="error ml-1 mr-1">Champs obligatoire</span>
-                {% endif %}
-                </div>
-
-                <div class="m-3">
                 <p>Image</p>
-                    <input type="search" id="form1" class="form-control" aria-label="Image"></textarea>
+                    <input type="file" id="form1" class="form-control" aria-label="Image"></input>
                     <button type="button" class="btn btn-primary mt-1">Rechercher <i class="fas fa-search"></i></button>
                     {% if errors is not empty and 'image' in errors.missings or 'image' in errors.required|keys %}
                     <span class="error ml-1 mr-1">Champs obligatoire</span>

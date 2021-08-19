@@ -9,12 +9,19 @@ $router->map('GET', '/', 'FrontController#home');
 $router->map('GET|POST', '/inscription', 'SecurityController#create');
 $router->map('GET|POST', '/connexion', 'SecurityController#login');
 $router->map( 'GET', '/post/[i:id]', 'ArticleController#article');
-$router->map('GET|POST', '/create', 'ArticleController#create');
-$router->map('GET', '/backoffice', 'ArticleController#homeBo');
+$router->map('GET|POST', '/posts', 'ArticleController#create');
+
+//admin
+$router->map('GET', '/admin', 'AdminController#home');
+$router->map('GET', '/admin/posts/activate/[i:id]', 'AdminController#activatePost');
+
 
 
 //account
 $router->map('GET|POST', '/mon-compte', 'AccountController#account');
+
+//post
+
 
 $match = $router->match();
 
