@@ -33,7 +33,7 @@ abstract class AbstractManager
         return $var;
     }
 
-    private function getTable()
+    protected function getTable()
     {
         $explode = explode('\\', get_class($this));
         $class = array_pop($explode);
@@ -43,9 +43,24 @@ abstract class AbstractManager
 
     public function insert($data)
     {
+
         $table = $this->getTable();
 
         $sql = 'INSERT INTO ' . $table . ' (' . implode(', ', array_keys($data)) . ') VALUES (' . implode(', ', array_map([$this, 'quote'], array_values($data))) . ')';
+        $req = $this->bdd->prepare($sql);
+        $req->execute();
+
+    }
+
+
+    public function update($data)
+    {
+
+        $table = $this->getTable();
+
+        $sql = 'UPDATE ' . $table . ' SET ' . implode(', ', array_keys($data)) . ') VALUES (' . implode(', ', array_map([$this, 'quote'], array_values($data))) . ')';
+
+
         $req = $this->bdd->prepare($sql);
         $req->execute();
 
@@ -71,11 +86,24 @@ abstract class AbstractManager
         $req = $this->bdd->prepare($select);
         $req->execute();
 
-        $entity = $req->fetch(PDO::FETCH_ASSOC);
+       if (!$unique) {
+            $entity = $req->fetchAll(PDO::FETCH_ASSOC);
+       } else {
+            $entity = $req->fetch(PDO::FETCH_ASSOC);
+       }
 
-        if ($entity) {
-            return Hydratation::hydrate($table, $entity);
+       if ($entity) {
+            if ($unique) {
+                return Hydratation::hydrate($table, $entity);
+            } else {
+                $data = [];
+                foreach ($entity as $key => $value) {
+                    $data[] = Hydratation::hydrate($table, $value);
+                }
+                return $data;
+            }
         }
+
         return false;
     }
 

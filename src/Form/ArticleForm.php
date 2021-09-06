@@ -20,16 +20,6 @@ class ArticleForm extends Form
             ],
             'content' => [
                 'required' => true
-            ],
-            'author' => [
-                'required' => true
-            ],
-            'image' => [
-                'required' => true
-            ]
-            ,
-            'date' => [
-                'required' => true
             ]
         ];
 

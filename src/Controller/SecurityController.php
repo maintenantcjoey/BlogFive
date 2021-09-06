@@ -40,7 +40,7 @@ class SecurityController extends Controller
                 'password' => $this->userManager->encode($request::get('password'))
             ]);
 
-            $this->redirect('/inscription');
+            $this->redirect('/connexion');
         }
 
         echo $this->twig->render('user/create.html.twig', [

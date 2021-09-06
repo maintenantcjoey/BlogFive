@@ -25,6 +25,7 @@ class ArticleController extends Controller
 
     public function create()
     {
+        $this->checkLoggin();
         $request = Request::getInstance();
 
         $form = new ArticleForm();
@@ -36,12 +37,13 @@ class ArticleController extends Controller
                 'title' => $request::get('title'),
                 'chapo' => $request::get('chapo'),
                 'content' => $request::get('content'),
-                'author' => $request::get('author'),
-                'image' => $request::get('image'),
-                'date' => $request::get('date')
+                'author' => $this->getUser()->getId(),
+                'image' => 'image.png',
+                'date' => date('Y-m-d'),
+                'status' => ARTICLE_PENDING
             ]);
 
-            $this->redirect('account/article');
+            $this->redirect('/posts');
         }
 
         echo $this->twig->render('article/createArticle.html.twig', [
@@ -60,6 +62,14 @@ class ArticleController extends Controller
             'article' => $article
         ]);
         }
+    }
+
+    public function homeBo()
+    {
+        $posts = $this->articleManager->getArticles();
+        echo $this->twig->render('article/homeBo.html.twig', [
+            'posts' => $posts,
+        ]);
     }
 }
 ?>
