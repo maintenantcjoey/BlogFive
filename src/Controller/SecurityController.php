@@ -60,11 +60,19 @@ class SecurityController extends Controller
                 $this->flash("User n'existe pas ou mot de passe incorect");
             } else {
                 $_SESSION['user'] = serialize($user);
+                if($this->getUser()->isAdmin()) {
+                    $this->redirect('/admin');
+                }
                 $this->redirect('/mon-compte');
             }
         }
 
         echo $this->twig->render('user/login.html.twig');
+    }
+
+    public function logout() {
+        session_destroy();
+        $this->redirect('/connexion');
     }
 
 }

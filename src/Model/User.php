@@ -19,6 +19,8 @@ class User
 
     private $role;
 
+    private $status;
+
     /**
      * @return mixed
      */
@@ -145,6 +147,18 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+    }
+
+    public function isAdmin() {
+        return $this->role == USER_ADMIN;
     }
 
 }

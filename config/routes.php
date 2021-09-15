@@ -8,7 +8,12 @@ $router->map('GET', '/', 'FrontController#home');
 // security
 $router->map('GET|POST', '/inscription', 'SecurityController#create');
 $router->map('GET|POST', '/connexion', 'SecurityController#login');
+$router->map('GET', '/deconnexion', 'SecurityController#logout');
+
 $router->map( 'GET', '/post/[i:id]', 'ArticleController#article');
+$router->map( 'GET|POST', '/post/[i:id]/edit', 'ArticleController#edit');
+$router->map( 'GET|POST', '/post/[i:id]/delete', 'ArticleController#delete');
+
 $router->map('GET|POST', '/posts', 'ArticleController#create');
 
 //admin

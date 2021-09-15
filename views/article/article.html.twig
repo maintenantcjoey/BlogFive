@@ -8,5 +8,12 @@
             <p class="card-text d-flex justify-content-center">{{article.chapo}}</p>
             <p class="card-text d-flex justify-content-center">{{article.content}}</p>
         </div>
+
+       {% if user and user.id is same as article.author %} 
+ 			<div class="action">
+ 				<a href="/post/{{ article.id }}/edit">Modifier</a>
+        	 	<a href="/post/{{ article.id }}/delete">Supprimer</a>
+        	</div>
+       {% endif %}
     </div>
 {% endblock %}

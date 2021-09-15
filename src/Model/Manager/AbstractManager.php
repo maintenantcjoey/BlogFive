@@ -112,4 +112,15 @@ abstract class AbstractManager
         return $this->bdd->quote($value);
     }
 
+
+    public function delete($id) {
+        $table = $this->getTable();
+
+        $sql = 'DELETE FROM ' . $table . ' WHERE id = :id';
+        $req = $this->bdd->prepare($sql);
+        $req->execute([
+            'id' => $id
+        ]);
+    }
+
 }

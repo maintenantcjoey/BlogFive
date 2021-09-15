@@ -2,6 +2,8 @@
 
 require 'vendor/autoload.php';
 require_once 'config/conf.php';
+require_once 'config/const.php';
+
 
 session_start();
 
