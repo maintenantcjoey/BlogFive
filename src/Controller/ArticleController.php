@@ -63,13 +63,5 @@ class ArticleController extends Controller
         ]);
         }
     }
-
-    public function homeBo()
-    {
-        $posts = $this->articleManager->getArticles();
-        echo $this->twig->render('article/homeBo.html.twig', [
-            'posts' => $posts,
-        ]);
-    }
 }
 ?>
