@@ -3,12 +3,12 @@
 {% block body %}
     <div class="container">
     
-        <h2 class="d-flex justify-content-center" >Créer un article</h2>
+        <h2 class="d-flex justify-content-center" >Modifier</h2>
 
         <form method="post">
                 <div class="m-3">
                 <p>Titre</p>
-                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="title" class="form-control" aria-label="Title"></textarea>
+                    <input id="floatingTextarea2" value="{{ article.getTitle()}}" name="title" class="form-control" aria-label="Title">
                     {% if errors is not empty and 'title' in errors.missings or 'title' in errors.required|keys %}
                         <span class="error ml-1 mr-1">Champs obligatoire</span>
                     {% endif %}
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center m-5">
-                <input class="btn btn-success" type="submit" value="Créer">
+                <input class="btn btn-success" type="submit" value="Modifier">
             </div>
     
      </form>

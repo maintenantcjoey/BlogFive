@@ -43,7 +43,7 @@ class ArticleController extends Controller
                 'status' => ARTICLE_PENDING
             ]);
 
-            $this->redirect('/posts');
+            $this->redirect('/mon-compte');
         }
 
         echo $this->twig->render('article/createArticle.html.twig', [
@@ -51,25 +51,54 @@ class ArticleController extends Controller
         ]);
     }
 
+
+    public function edit($params)
+    {
+        $this->checkLoggin();
+        $request = Request::getInstance();
+
+         $article = $this->articleManager->get(['id' => $params['id']]);
+
+        $form = new ArticleForm();
+
+        $form->handle($request);
+
+        if ($request::isPost() && $form->isValid()) {
+            $this->articleManager->insert([
+                'title' => $request::get('title'),
+                'chapo' => $request::get('chapo'),
+                'content' => $request::get('content'),
+            ]);
+
+            $this->redirect('/mon-compte');
+        }
+
+        echo $this->twig->render('article/edit.html.twig', [
+            'errors' => $form->getErrors(),
+            'article' => $article
+        ]);
+    }
+
     public function article($id)
     {
         if (isset($id['id'])){
-            $this->articleManager = new ArticleManager();
             $article = $this->articleManager->getArticle(['id' => $id['id']]);
-            // var_dump($article);
-            // die;
             echo $this->twig->render('article/article.html.twig', [
-            'article' => $article
+                'article' => $article
         ]);
         }
     }
 
-    public function homeBo()
+     public function delete($id)
     {
-        $posts = $this->articleManager->getArticles();
-        echo $this->twig->render('article/homeBo.html.twig', [
-            'posts' => $posts,
-        ]);
+        if (isset($id['id'])){
+            $article = $this->articleManager->get(['id' => $id['id']]);
+            if ($this->getuser()->getId() == $article->getAuthor()) {
+               $this->articleManager->delete($id['id']);
+            }
+        }
+
+        $this->redirect('/mon-compte');
     }
 }
 ?>
