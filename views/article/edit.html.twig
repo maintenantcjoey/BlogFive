@@ -8,7 +8,7 @@
         <form method="post">
                 <div class="m-3">
                 <p>Titre</p>
-                    <input id="floatingTextarea2" value="{{ article.getTitle()}}" name="title" class="form-control" aria-label="Title">
+                    <input id="floatingTextarea2" value="{{ article.title}}" name="title" class="form-control" aria-label="Title">
                     {% if errors is not empty and 'title' in errors.missings or 'title' in errors.required|keys %}
                         <span class="error ml-1 mr-1">Champs obligatoire</span>
                     {% endif %}
@@ -16,7 +16,7 @@
 
                 <div class="m-3">
                 <p>Chapo</p>
-                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="chapo" class="form-control" aria-label="Chapo"></textarea>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="chapo" class="form-control" aria-label="Chapo">{{ article.chapo }}</textarea>
                     {% if errors is not empty and 'chapo' in errors.missings or 'chapo' in errors.required|keys %}
                         <span class="error ml-1 mr-1">Champs obligatoire</span>
                     {% endif %}
@@ -24,7 +24,7 @@
 
                 <div class="m-3">
                 <p>Contenu</p>
-                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="content" class="form-control" aria-label="Content"></textarea>
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="content" class="form-control" aria-label="Content">{{ article.content}}</textarea>
                     {% if errors is not empty and 'content' in errors.missings or 'content' in errors.required|keys %}
                         <span class="error ml-1 mr-1">Champs obligatoire</span>
                     {% endif %}

@@ -9,6 +9,7 @@ namespace Blog\Controller;
 use Blog\Form\ArticleForm;
 use Blog\Http\Request;
 use Blog\Model\Manager\ArticleManager;
+use Blog\Model\Manager\CommentManager;
 
 class ArticleController extends Controller
 {
@@ -17,9 +18,15 @@ class ArticleController extends Controller
      */
     private $articleManager;
 
+    /**
+     * @var CommentManager
+     */
+    private $commentManager;
+
     public function __construct()
     {
         $this->articleManager  = new ArticleManager();
+        $this->commentManager  = new CommentManager();
         parent::__construct();
     }
 
@@ -57,20 +64,20 @@ class ArticleController extends Controller
         $this->checkLoggin();
         $request = Request::getInstance();
 
-         $article = $this->articleManager->get(['id' => $params['id']]);
+        $article = $this->articleManager->get(['id' => $params['id']]);
 
         $form = new ArticleForm();
 
         $form->handle($request);
 
         if ($request::isPost() && $form->isValid()) {
-            $this->articleManager->insert([
+            $this->articleManager->update([
                 'title' => $request::get('title'),
                 'chapo' => $request::get('chapo'),
                 'content' => $request::get('content'),
-            ]);
+            ], $article->getId());
 
-            $this->redirect('/mon-compte');
+            $this->redirect(sprintf('/post/%s', $article->getId()));
         }
 
         echo $this->twig->render('article/edit.html.twig', [
@@ -82,9 +89,12 @@ class ArticleController extends Controller
     public function article($id)
     {
         if (isset($id['id'])){
+
             $article = $this->articleManager->getArticle(['id' => $id['id']]);
+
             echo $this->twig->render('article/article.html.twig', [
-                'article' => $article
+                'article' => $article,
+                'comments' => $this->commentManager->get(['post' => $id['id']], false)
         ]);
         }
     }

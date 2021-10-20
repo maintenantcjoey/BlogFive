@@ -4,10 +4,29 @@
     <div class="container">
         <div class="card-body">
             <h5 class="card-title d-flex justify-content-center m-5">{{article.title}}</h5>
-            <img class="card-text d-flex justify-content-center" alt="projet">{{article.image}}</img>
+            <img class="card-text d-flex justify-content-center" src="{{article.image}}" alt="projet">
             <p class="card-text d-flex justify-content-center">{{article.chapo}}</p>
             <p class="card-text d-flex justify-content-center">{{article.content}}</p>
         </div>
+
+       <ul>
+           {% for comment in comments %}
+               <li>
+                   {{ comment.content }}
+               </li>
+           {% endfor %}
+       </ul>
+
+        <h3>Commentaires</h3>
+        <form method="POST" action="/comments/{{ article.id }}/create">
+            <textarea id="floatingTextarea2" style="height: 100px" name="content" class="form-control" aria-label="Content"></textarea>
+            {% if errors is not empty and 'content' in errors.missings or 'content' in errors.required|keys %}
+                <span class="error ml-1 mr-1">Champs obligatoire</span>
+            {% endif %}
+            <div class="d-flex justify-content-center m-5">
+                <input class="btn btn-success" type="submit" value="Créer">
+            </div>
+        </form>
 
        {% if user and user.id is same as article.author %} 
  			<div class="action">

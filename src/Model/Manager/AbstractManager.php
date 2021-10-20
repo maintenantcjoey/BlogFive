@@ -46,23 +46,34 @@ abstract class AbstractManager
 
         $table = $this->getTable();
 
-        $sql = 'INSERT INTO ' . $table . ' (' . implode(', ', array_keys($data)) . ') VALUES (' . implode(', ', array_map([$this, 'quote'], array_values($data))) . ')';
+        $sql = 'INSERT INTO ' . $table . ' (' . implode(', ', array_keys($data)) . ') VALUES (' . implode(', ', array_values($data)) . ')';
+
         $req = $this->bdd->prepare($sql);
-        $req->execute();
+       $res =  $req->execute();
 
     }
 
 
-    public function update($data)
+    public function update($data, $id)
     {
 
         $table = $this->getTable();
 
-        $sql = 'UPDATE ' . $table . ' SET ' . implode(', ', array_keys($data)) . ') VALUES (' . implode(', ', array_map([$this, 'quote'], array_values($data))) . ')';
+        $sql = 'UPDATE ' . $table . ' SET ';
 
+
+        foreach ($data as $key => $value) {
+            $sql .= $key . ' = ' . $this->quote($value) .', ';
+        }
+        $pos = strrpos($sql, ',');
+        $sql = substr($sql, 0, $pos);
+
+        $sql .= ' WHERE id = :id';
 
         $req = $this->bdd->prepare($sql);
-        $req->execute();
+        $req->execute([
+            ':id' => $id
+        ]);
 
     }
 
@@ -79,7 +90,7 @@ abstract class AbstractManager
         $where = '';
 
         foreach ($data as $key => $value) { 
-            $where .= " $key = " . $this->quote($value);
+            $where .= " $key = " . $value;
         }
         $select = 'SELECT * FROM ' . $table . ' WHERE' . $where . ($unique ? ' LIMIT 1' : '');
 
@@ -107,7 +118,7 @@ abstract class AbstractManager
         return false;
     }
 
-    private function quote($value)
+    public function quote($value)
     {
         return $this->bdd->quote($value);
     }
