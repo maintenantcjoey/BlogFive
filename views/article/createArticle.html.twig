@@ -5,7 +5,7 @@
     
         <h2 class="d-flex justify-content-center" >Créer un article</h2>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="m-3">
             <p>Titre</p>
                 <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="title" class="form-control" aria-label="Title"></textarea>
@@ -32,7 +32,7 @@
 
             <div class="m-3">
                 <p>Image</p>
-                    <input type="file" id="form1" class="form-control" aria-label="Image"></input>
+                    <input type="file" name="picture" id="form1" class="form-control" aria-label="Image"></input>
                     {% if errors is not empty and 'image' in errors.missings or 'image' in errors.required|keys %}
                     <span class="error ml-1 mr-1">Champs obligatoire</span>
                 {% endif %}

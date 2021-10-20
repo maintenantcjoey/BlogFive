@@ -2,6 +2,7 @@
 
 {% block body %}
     <div class="container">
+		<h2>Valid posts</h2>
         <table style="width:100%">
 		  <tr>
 		    <th>Id</th>
@@ -20,6 +21,27 @@
 			    {% endif %}
 		  	</tr>
 		  {% endfor %}
+		</table>
+
+		<h2>Valid Comments</h2>
+		<table style="width:100%">
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Status</th>
+			</tr>
+
+			{% for comment in comments %}
+				<tr>
+					<td>{{ comment.id }}</td>
+					<td>{{ comment.content|slice(0, 20) }}</td>
+					{% if comment.status == 1 %}
+						<td> Validé </td>
+					{% else %}
+						<td><a href="/admin/comments/activate/{{ comment.id }}">Mettre en ligne</a></td>
+					{% endif %}
+				</tr>
+			{% endfor %}
 		</table>
     </div>
 {% endblock %}

@@ -26,9 +26,7 @@ class AccountController extends Controller
         $this->checkLoggin();
 
         echo $this->twig->render('account/account.html.twig', [
-            'posts' => $this->articleManager->get([
-                'author' => $this->getUser()->getId()
-            ], false)
+            'posts' => $this->articleManager->getPostsByUserId($this->getUser()->getId())
         ]);
     }
 

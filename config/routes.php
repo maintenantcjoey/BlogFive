@@ -17,6 +17,8 @@ $router->map( 'GET|POST', '/post/[i:id]/delete', 'ArticleController#delete');
 $router->map('GET|POST', '/posts', 'ArticleController#create');
 
 $router->map('POST', '/comments/[i:id]/create', 'CommentController#create');
+$router->map('GET', '/admin/comments/activate/[i:id]', 'AdminController#activateComment');
+
 
 //admin
 $router->map('GET', '/admin', 'AdminController#home');
@@ -26,6 +28,7 @@ $router->map('GET', '/admin/posts/activate/[i:id]', 'AdminController#activatePos
 
 //account
 $router->map('GET|POST', '/mon-compte', 'AccountController#account');
+$router->map('POST', '/contact', 'FrontController#contact');
 
 //post
 

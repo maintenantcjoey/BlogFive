@@ -29,9 +29,10 @@ class CommentController extends Controller
         if ($request::isPost() && $form->isValid()) {
 
             $this->commentManager->insert([
-                'content' => $this->commentManager->quote(Request::get('content')),
+                'content' => Request::get('content'),
                 'post' => $params['id'],
-                'author' => $this->getUser()->getId()
+                'author' => (int) $this->getUser()->getId(),
+                'status' => ARTICLE_PENDING
             ]);
             $this->redirect(sprintf('/post/%s', $params['id']));
         }
