@@ -15,9 +15,15 @@ class Hydratation
         $entity = new $class;
 
         foreach ($data as $key => $value) {
-            $method = str_replace('_', '', $key);
-            $entity->{'set' . ucfirst($method)}($value);
+            if  (!$value) {
+                continue;
+            }
+            $method = 'set' . ucfirst(str_replace('_', '', $key));
+            if(method_exists($entity, $method)) {
+                $entity->$method($value);
+            }
         }
+
 
         return $entity;
     }

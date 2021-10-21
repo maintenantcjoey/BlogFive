@@ -36,7 +36,7 @@ class SecurityController extends Controller
                 'firstname' => $request::get('firstname'),
                 'lastname' => $request::get('lastname'),
                 'email' => strtolower($request::get('email')),
-                'role' => USER_PENDING,
+                'role' => USER_NORMAL,
                 'password' => $this->userManager->encode($request::get('password'))
             ]);
 
@@ -53,9 +53,7 @@ class SecurityController extends Controller
         $request = Request::getInstance();
 
         if ($request::isPost()) {
-            $user = $this->userManager->get([
-                'email' => $request::get('email')
-            ]);
+            $user = $this->userManager->getUserByEmail($request::get('email'));
             if (!$user || ($user && !$this->userManager->verify($request::get('password'), $user->getPassword()))) {
                 $this->flash("User n'existe pas ou mot de passe incorect");
             } else {
