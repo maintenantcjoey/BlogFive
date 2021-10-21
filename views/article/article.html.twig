@@ -26,6 +26,7 @@
                 {% if errors is not empty and 'content' in errors.missings or 'content' in errors.required|keys %}
                     <span class="error ml-1 mr-1">Champs obligatoire</span>
                 {% endif %}
+                <input type="hidden" name="token" value="{{ token }}">
                 <div class="d-flex justify-content-center m-5">
                     <input class="btn btn-success" type="submit" value="Créer">
                 </div>

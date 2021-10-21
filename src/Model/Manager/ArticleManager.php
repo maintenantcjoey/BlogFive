@@ -49,7 +49,10 @@ class ArticleManager extends AbstractManager
         $statement->bindParam('id', $id);
         $statement->execute();
         $post = $statement->fetch(PDO::FETCH_ASSOC);
-        return Hydratation::hydrate($this->getTable(), $post);
+        if ($post) {
+            return Hydratation::hydrate($this->getTable(), $post);
+        }
+        return null;
     }
 
     public function getPosts($status)

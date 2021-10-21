@@ -11,7 +11,7 @@ class ArticleForm extends Form
 
     public function configure()
     {
-        $this->fields = [
+       return [
             'title' => [
                 'required' => true
             ],

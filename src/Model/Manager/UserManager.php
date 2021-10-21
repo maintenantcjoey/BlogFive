@@ -26,7 +26,10 @@ class UserManager extends AbstractManager
         $statement->bindParam('email', $email);
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        return Hydratation::hydrate($this->getTable(), $user);
+        if ($user) {
+            return Hydratation::hydrate($this->getTable(), $user);
+        }
+        return null;
     }
 
     public function getUserById($id)
@@ -36,7 +39,10 @@ class UserManager extends AbstractManager
         $statement->bindParam('id', $id);
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        return Hydratation::hydrate($this->getTable(), $user);
+        if ($user) {
+            return Hydratation::hydrate($this->getTable(), $user);
+        }
+        return null;
     }
 
 

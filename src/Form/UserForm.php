@@ -11,7 +11,7 @@ class UserForm extends Form
 
     public function configure()
     {
-        $this->fields = [
+        return [
             'firstname' => [
                 'required' => true
             ],

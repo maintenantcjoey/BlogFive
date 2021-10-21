@@ -10,14 +10,16 @@ use Blog\Http\Request;
 
 abstract class Form
 {
-    protected $fields = [];
+    private $fields = [];
 
     private $errors = [];
 
 
     public function handle(Request $request)
     {
-        $this->configure();
+        $this->fields = array_merge($this->configure(), ['token' => [
+            'required' => true
+        ]]);
         if ($request::isPost()) {
             $this->validate($request);
         }
@@ -39,6 +41,12 @@ abstract class Form
             if (isset($configs['required'], $posts[$key]) && $configs['required'] && empty(trim($posts[$key]))) {
                 $this->errors['required'][$key] = true;
             }
+        }
+
+        if ($_SESSION['token'] !== $request::get('token')) {
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+        } else {
+            unset($_SESSION['token']);
         }
 
     }
