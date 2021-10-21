@@ -52,7 +52,10 @@ class CommentManager extends AbstractManager
         $statement->bindParam('id', $id);
         $statement->execute();
         $comment = $statement->fetch(PDO::FETCH_ASSOC);
-        return Hydratation::hydrate($this->getTable(), $comment);
+        if ($comment) {
+           return Hydratation::hydrate($this->getTable(), $comment);
+        }
+        return null;
     }
 
     public function activate(Comment $comment)

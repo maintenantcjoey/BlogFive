@@ -9,7 +9,7 @@ class CommentForm extends Form
 
     public function configure()
     {
-        $this->fields = [
+        return [
             'content' => [
                 'required' => true
             ]

@@ -97,11 +97,11 @@ class ArticleController extends Controller
     {
         if (isset($id['id'])){
 
-            //$article = $this->articleManager->getPostById($id['id']);
+            $article = $this->articleManager->getPostById($id['id']);
 
             echo $this->twig->render('article/article.html.twig', [
-                //'article' => $article,
-                //'author' => $this->userManager->getUserById($article->getAuthor()),
+                'article' => $article,
+                'author' => $this->userManager->getUserById($article->getAuthor()),
                 'comments' => $this->commentManager->getCommentsBy($id['id'], COMMENT_VALIDATE)
         ]);
         }

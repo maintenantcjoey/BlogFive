@@ -24,6 +24,8 @@ class Controller
 		if ($user = $this->getUser()) {
 		    $this->twig->addGlobal('user', $user);
         }
+        $this->twig->addGlobal('token', $this->generateToken());
+
 	}
 
     public function redirect($url)
@@ -50,5 +52,13 @@ class Controller
     public function getUser()
     {
         return isset($_SESSION['user']) ? unserialize($_SESSION['user']) : null;
+	}
+
+    public function generateToken()
+    {
+        if (!isset($_SESSION['token'])) {
+            $_SESSION['token'] = md5(uniqid());
+        }
+        return $_SESSION['token'];
 	}
 }

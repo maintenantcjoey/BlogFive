@@ -1,4 +1,5 @@
 vendor/
 var/
-config/conf.php.idea
+config/conf.php
 public/uploads
+.idea/
