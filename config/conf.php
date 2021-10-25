@@ -2,11 +2,11 @@
 
 define('HOSTNAME', 'localhost');
 
-define('DBNAME', 'jess');
+define('DBNAME', 'blogfive');
 
 define('USER', 'root');
 
-define('PASSWORD', 'root');
+define('PASSWORD', '');
 
 define('SMTP', 'smtp.gmail.com');
 define('USER_EMAIL', 'gamil@gamil.com');
