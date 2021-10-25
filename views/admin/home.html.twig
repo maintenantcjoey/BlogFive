@@ -2,14 +2,13 @@
 
 {% block body %}
     <div class="container">
-		<h2>Valid posts</h2>
-        <table style="width:100%">
+		<h4>Article(s) en attente de validation</h4>
+        <table class="table table-striped table-hover mb-5">
 		  <tr>
 		    <th>Id</th>
 		    <th>Title</th> 
 		    <th>Status</th>
 		  </tr>
-
 		  {% for post in posts %}
  			<tr>
 			    <td>{{ post.id }}</td>
@@ -23,14 +22,13 @@
 		  {% endfor %}
 		</table>
 
-		<h2>Valid Comments</h2>
-		<table style="width:100%">
+		<h4>Commentaire(s) en attente de validation</h4>
+		<table class="table table-striped table-hover mb-5">
 			<tr>
 				<th>Id</th>
 				<th>Title</th>
 				<th>Status</th>
 			</tr>
-
 			{% for comment in comments %}
 				<tr>
 					<td>{{ comment.id }}</td>

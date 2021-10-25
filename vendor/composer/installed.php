@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'dda783b1782040a59d4ffcc0162421624e5a545e',
+    'reference' => '835909dbdbe9fddaadef907da6255371a2ced300',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'dda783b1782040a59d4ffcc0162421624e5a545e',
+      'reference' => '835909dbdbe9fddaadef907da6255371a2ced300',
     ),
     'altorouter/altorouter' => 
     array (
@@ -94,12 +94,12 @@
     ),
     'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => 'v1.23.0',
-      'version' => '1.23.0.0',
+      'pretty_version' => 'v1.23.1',
+      'version' => '1.23.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2df51500adbaebdc4c38dea4c89a2e131c45c8a1',
+      'reference' => '9174a3d80210dca8daa7f31fec659150bbeabfc6',
     ),
     'symfony/polyfill-php72' => 
     array (
@@ -112,12 +112,12 @@
     ),
     'twig/twig' => 
     array (
-      'pretty_version' => 'v3.3.2',
-      'version' => '3.3.2.0',
+      'pretty_version' => 'v3.3.3',
+      'version' => '3.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
+      'reference' => 'a27fa056df8a6384316288ca8b0fa3a35fdeb569',
     ),
   ),
 );
