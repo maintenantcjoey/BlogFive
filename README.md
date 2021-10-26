@@ -8,7 +8,7 @@ Ce projet numéro 5 a été réalisé pour Openclassrooms dns le cadre du parcou
 
 ## Pour commencer
 
-??
+Lire les Diagrammes UML dans le dossier (https://drive.google.com/drive/folders/1Yx9--w7n3FmcrqP2oAVYtcN8WKxwWVv0?usp=sharing)
 
 ### Pré-requis
 
@@ -39,5 +39,7 @@ Dites comment faire pour lancer votre projet
 
 ## Avec l'aide précieuse de
 * **Sylva Etokabela** _alias_ [@outout14](https://github.com/outout14)
+
+
 
 
