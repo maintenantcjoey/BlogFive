@@ -1,22 +1,20 @@
 # BlogFive
 
-_(juste en dessous des badges sympatiques à placer)_
-
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
-Ce projet numéro 5 a été réalisé pour Openclassrooms dns le cadre du parcours développeur php.
+Ce projet numéro 5 a été réalisé pour Openclassrooms dns le cadre du parcours développeur php: un blog sous le pattern MVC
 
 ## Pour commencer
 
-Lire les Diagrammes UML dans le dossier (https://drive.google.com/drive/folders/1Yx9--w7n3FmcrqP2oAVYtcN8WKxwWVv0?usp=sharing)
+Lire les Diagrammes UML dans le dossier Google Drive: (https://drive.google.com/drive/folders/1Yx9--w7n3FmcrqP2oAVYtcN8WKxwWVv0?usp=sharing), le résultat codacy y est également disponible.
 
 ### Pré-requis
 
-- Composer
-- 
+- Composer (https://getcomposer.org/)
+
 ### Installation
 
-- Cloner le repository git
+- Cloner le repository git 
 - Exécuter la commande composer update afin de récupérer toutes les dépendances utilisées dans le projet
 
 Ensuite vous pouvez montrer ce que vous obtenez au final...
