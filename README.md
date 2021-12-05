@@ -2,7 +2,7 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
-Ce projet numéro 5 a été réalisé pour Openclassrooms dns le cadre du parcours développeur php: un blog sous le pattern MVC
+blog sous le pattern MVC
 
 ## Pour commencer
 
